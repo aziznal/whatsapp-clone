@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.whatsappclone.FirstFragment"
+        android:name="com.example.whatsappclone.chat.ChatFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first"/>
+        tools:layout="@layout/fragment_chat"/>
 </navigation>
