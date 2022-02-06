@@ -1,14 +1,23 @@
 package com.example.whatsappclone.chat
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 private const val TAG = "ChatFragmentViewModel"
 
 class ChatFragmentViewModel constructor() : ViewModel() {
-    public var foo = "Hello Foo"
+    private var _foo = MutableLiveData<String>("Foo")
+    val foo: LiveData<String>
+        get() = _foo
 
     init {
         Log.d(TAG, "ChatFragmentViewModel has been created")
+    }
+
+    fun getTime(): String {
+        _foo.value = System.currentTimeMillis().toString()
+        return System.currentTimeMillis().toString()
     }
 }
