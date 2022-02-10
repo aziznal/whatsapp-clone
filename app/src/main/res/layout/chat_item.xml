@@ -7,38 +7,47 @@
 
     <TextView
         android:id="@+id/chat_name_text"
-        android:layout_width="303dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="24dp"
-        android:paddingLeft="10dp"
+        android:layout_width="209dp"
+        android:layout_height="21dp"
+        android:paddingLeft="4dp"
         android:textColor="@android:color/black"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/last_message_text"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/last_message_text"
+        app:layout_constraintBottom_toTopOf="@+id/last_message_text"
+        app:layout_constraintStart_toEndOf="@+id/chat_image"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:text="Chat Name" />
 
     <TextView
         android:id="@+id/last_message_text"
-        android:layout_width="302dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:paddingLeft="10dp"
-        android:textSize="12sp"
+        android:layout_width="208dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="12dp"
+        android:paddingLeft="4dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chat_image"
-        app:layout_constraintTop_toBottomOf="@+id/chat_name_text"
         tools:text="Last Message" />
 
     <ImageView
         android:id="@+id/chat_image"
-        android:layout_width="72dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="77dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_round"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:text="13:15"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
