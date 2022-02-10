@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.whatsappclone.R
 import com.example.whatsappclone.databinding.FragmentChatListBinding
 
 private const val TAG = "ChatListFragment"
@@ -33,7 +34,7 @@ class MockChatData {
     ).toTypedArray()
 }
 
-class ChatListesiFragment : Fragment() {
+class ChatListFragment : Fragment() {
 
     private var _binding: FragmentChatListBinding? = null
     private val binding get() = _binding!!
@@ -54,7 +55,7 @@ class ChatListesiFragment : Fragment() {
 
     private fun setupChatList() {
         val chatAdapter = ChatListAdapter(MockChatData().chatList) {
-            Toast.makeText(context, it.chatName, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_chatListFragment_to_chatFragment)
         }
 
         val layoutManager = LinearLayoutManager(context)
