@@ -55,7 +55,7 @@ class ChatListFragment : Fragment() {
 
     private fun setupChatList() {
         val chatAdapter = ChatListAdapter(MockChatData().chatList) {
-            findNavController().navigate(ChatListFragmentDirections.actionChatListFragmentToChatFragment())
+            findNavController().navigate(ChatListFragmentDirections.actionChatListFragmentToChatFragment("123456"))
 
         }
 
