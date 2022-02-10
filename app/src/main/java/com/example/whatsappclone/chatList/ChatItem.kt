@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chat
+package com.example.whatsappclone.chatList
 
 data class ChatItem(val chatName: String, val chatLastMessage: String) {
 

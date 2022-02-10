@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chat
+package com.example.whatsappclone.chatList
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +7,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
 
-class ChatListAdapter(private val dataSet: Array<ChatItem>) :
-    RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>() {
+private const val TAG = "ChatListAdapter"
+
+class ChatListAdapter(
+    private val dataSet: Array<ChatItem>,
+    val onClickCallback: (ChatItem) -> Unit
+) : RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>() {
 
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val chatNameTextView: TextView = view.findViewById(R.id.chat_name_text)
         private val chatLastMessageTextView: TextView = view.findViewById(R.id.last_message_text)
 
-        fun bind(chat: ChatItem) {
+        fun bind(chat: ChatItem, onClickCallback: (ChatItem) -> Unit) {
             chatNameTextView.text = chat.chatName
             chatLastMessageTextView.text = chat.chatLastMessage
+
+            itemView.setOnClickListener {
+                onClickCallback(chat)
+            }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
@@ -27,7 +36,7 @@ class ChatListAdapter(private val dataSet: Array<ChatItem>) :
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val chatItem = dataSet[position]
-        holder.bind(chatItem)
+        holder.bind(chatItem, onClickCallback)
     }
 
     override fun getItemCount(): Int = dataSet.size
