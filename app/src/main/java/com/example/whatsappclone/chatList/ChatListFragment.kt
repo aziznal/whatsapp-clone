@@ -1,13 +1,12 @@
 package com.example.whatsappclone.chatList
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.whatsappclone.R
 import com.example.whatsappclone.databinding.FragmentChatListBinding
 
 private const val TAG = "ChatListFragment"
@@ -24,6 +23,8 @@ class ChatListFragment : Fragment() {
         _binding = FragmentChatListBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
 
+        setHasOptionsMenu(true)
+
         createViewModel()
 
         setupChatList()
@@ -31,9 +32,17 @@ class ChatListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
     private fun setupChatList() {
         val chatAdapter = ChatListAdapter(MockChatData().chatList) {
-            findNavController().navigate(ChatListFragmentDirections.actionChatListFragmentToChatFragment("123456"))
+            findNavController().navigate(
+                ChatListFragmentDirections.actionChatListFragmentToChatFragment(
+                    "123456"
+                )
+            )
 
         }
 
