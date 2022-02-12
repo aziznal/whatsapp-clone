@@ -1,5 +1,7 @@
 package com.example.whatsappclone.chatList
 
-data class ChatItem(val chatName: String, val chatLastMessage: String) {
+import java.io.Serializable
+
+data class ChatItem(val chatName: String, val chatLastMessage: String) : Serializable {
 
 }
