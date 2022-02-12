@@ -4,5 +4,9 @@
     <string name="chat_list_fragment_label">Whatsapp Clone</string>
     <string name="about_title">About</string>
 
-    <string name="about_text">Whatsapp Clone V0.1 \n\n Developed by me, an ambitious, if sometimes completely fu**ing lost, developer.</string>
+    <string name="about_text">
+        Whatsapp Clone V0.1
+        \n\n
+        Developed by me, an ambitious, if sometimes completely fu**ing lost, developer.
+    </string>
 </resources>
