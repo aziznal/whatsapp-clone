@@ -8,31 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.whatsappclone.R
 import com.example.whatsappclone.databinding.FragmentChatListBinding
 
 private const val TAG = "ChatListFragment"
-
-class MockChatData {
-    val chatList = listOf<ChatItem>(
-        ChatItem("John", "We should meet soon!"),
-        ChatItem("Jane", "They said it works for them"),
-        ChatItem("Pizza", "OK"),
-        ChatItem("Mom", "sure"),
-        ChatItem("John", "We should meet soon!"),
-        ChatItem("Jane", "They said it works for them"),
-        ChatItem("Pizza", "OK"),
-        ChatItem("Mom", "sure"),
-        ChatItem("John", "We should meet soon!"),
-        ChatItem("Jane", "They said it works for them"),
-        ChatItem("Pizza", "OK"),
-        ChatItem("Mom", "sure"),
-        ChatItem("John", "We should meet soon!"),
-        ChatItem("Jane", "They said it works for them"),
-        ChatItem("Pizza", "OK"),
-        ChatItem("Mom", "sure"),
-    ).toTypedArray()
-}
 
 class ChatListFragment : Fragment() {
 

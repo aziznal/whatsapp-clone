@@ -26,15 +26,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         addNavToActionBar()
-
-        setupFloatingActionButtonOnClickListener()
-    }
-
-    private fun setupFloatingActionButtonOnClickListener() {
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
-                .setAction("Action", null).show()
-        }
     }
 
     private fun addNavToActionBar() {
