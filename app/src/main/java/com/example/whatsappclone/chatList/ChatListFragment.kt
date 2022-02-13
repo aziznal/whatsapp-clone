@@ -11,6 +11,8 @@ import com.example.whatsappclone.databinding.FragmentChatListBinding
 
 private const val TAG = "ChatListFragment"
 
+// TODO: setup and handle New Chat FAB
+
 class ChatListFragment : Fragment() {
 
     private var _binding: FragmentChatListBinding? = null
