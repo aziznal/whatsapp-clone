@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.whatsappclone.ChatListFragment">
 
-    <!-- TODO: add settings button and fragment -->
-
     <item
         android:id="@+id/fragment_about"
         android:orderInCategory="100"
