@@ -2,7 +2,6 @@ package com.example.whatsappclone.chat
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -16,24 +15,22 @@ class ChatFragment : Fragment() {
     private var _binding: FragmentChatBinding? = null
     private val binding get() = _binding!!
 
-    private val args: ChatFragmentArgs by navArgs()
+    private var _viewModel: ChatViewModel? = null
+    private val viewModel get() = _viewModel!!
 
-    private var isBlocked: Boolean = false
+    private val args: ChatFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentChatBinding.inflate(inflater, container, false)
+        setupBindingAndViewModel(inflater, container)
 
         binding.lifecycleOwner = this
 
-        binding.centeredText.text =
-            "I should load the chat with id ${args.chatId.toString()}, but I don't have a database yet!"
-
         setHasOptionsMenu(true)
 
-        bindViewModel()
+        setAboutText()
 
         return binding.root
     }
@@ -44,20 +41,27 @@ class ChatFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_block_switch -> toggleBlockedStatus(item)
+            R.id.menu_block_switch -> viewModel.toggleBlockedStatus(item)
             else -> false
         }
     }
 
-    private fun toggleBlockedStatus(menuItem: MenuItem): Boolean {
-        isBlocked = !isBlocked
-        menuItem.isChecked = isBlocked
-        return true
+    private fun setupBindingAndViewModel(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) {
+        _binding = FragmentChatBinding.inflate(inflater, container, false)
+        _viewModel = ViewModelProvider(this)[ChatViewModel::class.java]
+
+        bindViewModel()
     }
 
     private fun bindViewModel() {
-        val viewModel = ViewModelProvider(this).get(ChatViewModel::class.java)
         binding.viewModel = viewModel
+    }
+
+    private fun setAboutText() {
+        binding.centeredText.text = getString(R.string.should_load_chat_text, args.chatId)
     }
 
 }

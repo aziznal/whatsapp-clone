@@ -9,4 +9,6 @@
         \n\n
         Developed by me, an ambitious, if sometimes completely fu**ing lost, developer.
     </string>
+
+    <string name="should_load_chat_text">I should load the chat with id %1$s, but I don\'t have a database yet!</string>
 </resources>
