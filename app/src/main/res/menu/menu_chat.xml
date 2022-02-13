@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_block_button"
-        android:title="Block" />
+        android:id="@+id/menu_block_switch"
+        android:checkable="true"
+        android:title="Block"
+        app:actionLayout="@layout/switch_item" />
 </menu>

@@ -16,7 +16,9 @@ class ChatFragment : Fragment() {
     private var _binding: FragmentChatBinding? = null
     private val binding get() = _binding!!
 
-    val args: ChatFragmentArgs by navArgs()
+    private val args: ChatFragmentArgs by navArgs()
+
+    private var isBlocked: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,9 +44,15 @@ class ChatFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_block_button -> false
+            R.id.menu_block_switch -> toggleBlockedStatus(item)
             else -> false
         }
+    }
+
+    private fun toggleBlockedStatus(menuItem: MenuItem): Boolean {
+        isBlocked = !isBlocked
+        menuItem.isChecked = isBlocked
+        return true
     }
 
     private fun bindViewModel() {
