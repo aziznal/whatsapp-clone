@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="General">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="switch_preference_1"
+            android:title="Use all available memory" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="switch_preference_2"
+            android:title="Launch app on device bootup" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Developer Tools">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="check_box_preference_1"
+            android:summaryOff="Check this box for a sweet surprise!"
+            android:summaryOn="Your device will self-destruct as soon as you close this app"
+            android:title="Surprise Me" />
+    </PreferenceCategory>
+</PreferenceScreen>
