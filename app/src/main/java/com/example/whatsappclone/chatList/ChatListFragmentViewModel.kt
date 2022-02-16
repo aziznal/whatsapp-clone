@@ -7,17 +7,21 @@ import androidx.lifecycle.ViewModel
 
 private const val TAG = "ChatFragmentViewModel"
 
-class ChatListFragmentViewModel constructor() : ViewModel() {
-    private var _foo = MutableLiveData<String>("Foo")
-    val foo: LiveData<String>
-        get() = _foo
+class ChatListFragmentViewModel : ViewModel() {
 
-    init {
-        Log.d(TAG, "ChatFragmentViewModel has been created")
+    private var _gotoNewChatScreenEvent = MutableLiveData(false)
+    public val gotoNewChatScreenEvent: LiveData<Boolean>
+        get() = _gotoNewChatScreenEvent
+
+    fun onNewChatButtonClicked() {
+        Log.d(TAG, "onNewChatButtonClicked: Clicked Fab")
+        _gotoNewChatScreenEvent.value = true
     }
 
-    fun getTime(): String {
-        _foo.value = System.currentTimeMillis().toString()
-        return System.currentTimeMillis().toString()
+
+    fun completeGotoNewChatScreenEvent() {
+        Log.d(TAG, "onNewChatButtonClicked: Handled Fab Click")
+        _gotoNewChatScreenEvent.value = false
     }
+
 }

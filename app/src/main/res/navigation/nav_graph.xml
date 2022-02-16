@@ -17,6 +17,9 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_chatListFragment_to_newChatFragment"
+            app:destination="@id/newChatFragment" />
     </fragment>
 
     <fragment
@@ -42,4 +45,9 @@
     <action
         android:id="@+id/action_global_settingsFragment"
         app:destination="@id/fragment_settings" />
+    <fragment
+        android:id="@+id/newChatFragment"
+        android:name="com.example.whatsappclone.newChat.NewChatFragment"
+        android:label="fragment_new_chat_list"
+        tools:layout="@layout/fragment_new_chat_list" />
 </navigation>

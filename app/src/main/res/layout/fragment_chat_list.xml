@@ -30,6 +30,7 @@
             android:layout_marginBottom="28dp"
             android:clickable="true"
             android:contentDescription="Create a new chat"
+            android:onClick="@{() -> viewModel.onNewChatButtonClicked()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_baseline_message_24" />
