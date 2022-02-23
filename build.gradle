@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         def nav_version = "2.4.1"
 
+        // Navigation
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
@@ -20,6 +21,7 @@ plugins {
 ext {
     lifecycle_version = "2.4.0"
     nav_version = '2.4.1'
+    room_version = '2.4.2'
 }
 
 task clean(type: Delete) {
