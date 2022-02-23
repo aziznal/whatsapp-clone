@@ -47,7 +47,7 @@ class ChatListFragment : Fragment() {
     private fun onListedChatClicked(it: ChatItem) {
         findNavController().navigate(
             ChatListFragmentDirections.actionChatListFragmentToChatFragment(
-                it.chatName
+                it.otherPartyName
             )
         )
     }

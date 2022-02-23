@@ -20,8 +20,8 @@ class ChatListAdapter(
         private val chatLastMessageTextView: TextView = view.findViewById(R.id.last_message_text)
 
         fun bind(chat: ChatItem, onClickCallback: (ChatItem) -> Unit) {
-            chatNameTextView.text = chat.chatName
-            chatLastMessageTextView.text = chat.chatLastMessage
+            chatNameTextView.text = chat.otherPartyName
+            chatLastMessageTextView.text = "I know what you did :)"
 
             itemView.setOnClickListener {
                 onClickCallback(chat)
