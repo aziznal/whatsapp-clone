@@ -1,4 +1,4 @@
-package com.example.whatsappclone.settings
+package com.example.whatsappclone.fragments.settings
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat

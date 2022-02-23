@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chat
+package com.example.whatsappclone.fragments.chat
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

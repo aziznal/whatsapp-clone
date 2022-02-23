@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chatList
+package com.example.whatsappclone.models
 
 import java.io.Serializable
 

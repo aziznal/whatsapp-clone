@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.whatsappclone.chatList.ChatListFragmentViewModel" />
+            type="com.example.whatsappclone.fragments.chatList.ChatListFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".chatList.ChatListFragment">
+        tools:context=".fragments.chatList.ChatListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chat_list"

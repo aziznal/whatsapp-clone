@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chatList
+package com.example.whatsappclone.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
+import com.example.whatsappclone.models.ChatItem
 
 private const val TAG = "ChatListAdapter"
 

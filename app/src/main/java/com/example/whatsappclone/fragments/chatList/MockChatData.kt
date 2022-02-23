@@ -1,4 +1,6 @@
-package com.example.whatsappclone.chatList
+package com.example.whatsappclone.fragments.chatList
+
+import com.example.whatsappclone.models.ChatItem
 
 class MockChatData {
     val chatList = listOf<ChatItem>(

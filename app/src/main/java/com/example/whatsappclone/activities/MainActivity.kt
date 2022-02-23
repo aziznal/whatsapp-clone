@@ -1,15 +1,14 @@
-package com.example.whatsappclone
+package com.example.whatsappclone.activities
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.ui.onNavDestinationSelected
+import com.example.whatsappclone.R
 import com.example.whatsappclone.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

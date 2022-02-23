@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chatList
+package com.example.whatsappclone.fragments.chatList
 
 import androidx.lifecycle.ViewModel
 import com.example.whatsappclone.utils.SingleLiveEvent

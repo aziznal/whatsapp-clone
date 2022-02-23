@@ -1,4 +1,4 @@
-package com.example.whatsappclone.chatList
+package com.example.whatsappclone.fragments.chatList
 
 import android.os.Bundle
 import android.view.*
@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.whatsappclone.R
+import com.example.whatsappclone.adapters.ChatListAdapter
 import com.example.whatsappclone.databinding.FragmentChatListBinding
+import com.example.whatsappclone.models.ChatItem
 
 private const val TAG = "ChatListFragment"
 

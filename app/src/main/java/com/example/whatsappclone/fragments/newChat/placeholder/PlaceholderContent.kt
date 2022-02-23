@@ -1,4 +1,4 @@
-package com.example.whatsappclone.newChat.placeholder
+package com.example.whatsappclone.fragments.newChat.placeholder
 
 import java.util.ArrayList
 import java.util.HashMap

@@ -1,11 +1,11 @@
-package com.example.whatsappclone.newChat
+package com.example.whatsappclone.fragments.newChat
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.databinding.FragmentNewChatBinding
-import com.example.whatsappclone.newChat.placeholder.PlaceholderContent.PlaceholderItem
+import com.example.whatsappclone.fragments.newChat.placeholder.PlaceholderContent.PlaceholderItem
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
