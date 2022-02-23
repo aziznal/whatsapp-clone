@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.whatsappclone.R
 import com.example.whatsappclone.databinding.FragmentChatListBinding
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 private const val TAG = "ChatListFragment"
 
@@ -51,16 +54,8 @@ class ChatListFragment : Fragment() {
     }
 
     private fun handleViewModelObservables() {
-        viewModel.eventEmitter.observe(
-            viewLifecycleOwner
-        ) { eventValue ->
-            when (eventValue) {
-                is ChatListFragmentViewModel.Events.GotoNewChatScreenEvent -> {
-                    gotoNewChatScreen()
-                }
-
-                else -> {}
-            }
+        viewModel.gotoNewChatScreen.observe(viewLifecycleOwner) {
+            gotoNewChatScreen()
         }
     }
 
