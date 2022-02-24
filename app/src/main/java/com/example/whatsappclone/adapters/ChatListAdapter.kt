@@ -12,7 +12,7 @@ private const val TAG = "ChatListAdapter"
 
 class ChatListAdapter(
     private val dataSet: Array<ChatItem>,
-    val onClickCallback: (ChatItem) -> Unit
+    private val onClickCallback: (ChatItem) -> Unit
 ) : RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>() {
 
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,7 +27,6 @@ class ChatListAdapter(
                 onClickCallback(chat)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
