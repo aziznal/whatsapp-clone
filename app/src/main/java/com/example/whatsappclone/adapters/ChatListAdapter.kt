@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
-import com.example.whatsappclone.models.ChatItem
+import com.example.whatsappclone.models.Chat
 
 private const val TAG = "ChatListAdapter"
 
 class ChatListAdapter(
-    private val dataSet: Array<ChatItem>,
-    private val onClickCallback: (ChatItem) -> Unit
+    private val dataSet: Array<Chat>,
+    private val onClickCallback: (Chat) -> Unit
 ) : RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>() {
 
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val chatNameTextView: TextView = view.findViewById(R.id.chat_name_text)
         private val chatLastMessageTextView: TextView = view.findViewById(R.id.last_message_text)
 
-        fun bind(chat: ChatItem, onClickCallback: (ChatItem) -> Unit) {
-            chatNameTextView.text = chat.otherPartyName
+        fun bind(chat: Chat, onClickCallback: (Chat) -> Unit) {
+            chatNameTextView.text = chat.otherPersonContactId.toString()
             chatLastMessageTextView.text = "I know what you did :)"
 
             itemView.setOnClickListener {

@@ -7,8 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.whatsappclone.R
 import com.example.whatsappclone.adapters.ChatListAdapter
+import com.example.whatsappclone.data.mock.MockData
 import com.example.whatsappclone.databinding.FragmentChatListBinding
-import com.example.whatsappclone.models.ChatItem
+import com.example.whatsappclone.models.Chat
 
 private const val TAG = "ChatListFragment"
 
@@ -40,14 +41,14 @@ class ChatListFragment : Fragment() {
         return binding.root
     }
 
-    private fun createChatListAdapter() = ChatListAdapter(MockChatData().chatList) {
+    private fun createChatListAdapter() = ChatListAdapter(MockData.mockChats) {
         onListedChatClicked(it)
     }
 
-    private fun onListedChatClicked(it: ChatItem) {
+    private fun onListedChatClicked(it: Chat) {
         findNavController().navigate(
             ChatListFragmentDirections.actionChatListFragmentToChatFragment(
-                it.otherPartyName
+                it.id
             )
         )
     }
