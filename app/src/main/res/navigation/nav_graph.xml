@@ -28,7 +28,7 @@
         android:label="Chat">
         <argument
             android:name="chatId"
-            app:argType="integer" />
+            app:argType="string" />
     </fragment>
 
     <fragment

@@ -8,14 +8,14 @@ class MockData {
     companion object {
         val mockContacts = listOf(
             Contact(
-                id = 1,
+                id = "Contact1",
                 fullName = "John Doe",
                 status = "Available",
                 phoneNumber = "8726187745",
                 isBlocked = false
             ),
             Contact(
-                id = 2,
+                id = "Contact2",
                 fullName = "Jane Doe",
                 status = "Urgent Calls Only",
                 phoneNumber = "3163462865",
@@ -25,52 +25,64 @@ class MockData {
 
         val mockChats = listOf(
             Chat(
-                id = 1,
+                id = "Chat1",
                 otherPersonContactId = mockContacts[0].id
             ),
             Chat(
-                id = 2,
+                id = "Chat2",
                 otherPersonContactId = mockContacts[1].id
             ),
         ).toTypedArray()
 
         val mockMessages = listOf(
             Message(
-                id = 1,
+                id = "Message1",
                 body = "I know what you did last summer",
                 datetime = "16:41",
-                chatId = mockChats[0].id
+                chatId = mockChats[0].id,
+                isOwnMessage = false,
+                hasBeenRead = false
             ),
             Message(
-                id = 2,
+                id = "Message2",
                 body = "I still know what you did last summer",
                 datetime = "16:43",
-                chatId = mockChats[0].id
+                chatId = mockChats[0].id,
+                isOwnMessage = false,
+                hasBeenRead = false
             ),
             Message(
-                id = 3,
+                id = "Message3",
                 body = "I will always know what you did last summer",
                 datetime = "16:45",
-                chatId = mockChats[0].id
+                chatId = mockChats[0].id,
+                isOwnMessage = false,
+                hasBeenRead = false
             ),
 
             Message(
-                id = 4,
+                id = "Message4",
                 body = "I know what you did last summer",
                 datetime = "16:41",
-                chatId = mockChats[1].id
+                chatId = mockChats[1].id,
+                isOwnMessage = false,
+                hasBeenRead = false
             ),
             Message(
-                id = 5,
+                id = "Message5",
                 body = "I still know what you did last summer",
                 datetime = "16:43",
-                chatId = mockChats[1].id
+                chatId = mockChats[1].id,
+                isOwnMessage = false,
+                hasBeenRead = false
             ),
             Message(
-                id = 6,
+                id = "Message6",
                 body = "I will always know what you did last summer",
                 datetime = "16:45",
-                chatId = mockChats[1].id
+                chatId = mockChats[1].id,
+                isOwnMessage = false,
+                hasBeenRead = false
             ),
         ).toTypedArray()
     }
