@@ -11,15 +11,15 @@ import androidx.room.PrimaryKey
         ForeignKey(
             entity = Contact::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("other_person_id"),
+            childColumns = arrayOf("other_person_contact_id"),
             onDelete = ForeignKey.CASCADE
         )
     ]
 )
 data class Chat(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: String,
 
     @ColumnInfo(name = "other_person_contact_id", index = true)
-    val otherPersonContactId: Int,
+    val otherPersonContactId: String,
 )

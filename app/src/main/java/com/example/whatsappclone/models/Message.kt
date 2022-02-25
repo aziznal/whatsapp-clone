@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(
     foreignKeys = [
@@ -18,7 +17,10 @@ import java.util.*
 )
 data class Message(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: String,
+
+    @ColumnInfo(name = "chat_id", index = true)
+    val chatId: String,
 
     @ColumnInfo(name = "body")
     val body: String,
@@ -26,6 +28,9 @@ data class Message(
     @ColumnInfo(name = "datetime")
     val datetime: String,
 
-    @ColumnInfo(name = "chat_id", index = true)
-    val chatId: Int
+    @ColumnInfo(name = "is_own_message")
+    val isOwnMessage: Boolean,
+
+    @ColumnInfo(name = "has_been_read")
+    val hasBeenRead: Boolean
 )
