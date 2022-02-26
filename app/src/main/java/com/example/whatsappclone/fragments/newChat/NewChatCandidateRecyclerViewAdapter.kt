@@ -5,18 +5,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.databinding.FragmentNewChatBinding
-import com.example.whatsappclone.fragments.newChat.placeholder.PlaceholderContent.PlaceholderItem
+import com.example.whatsappclone.models.Contact
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
+private const val TAG = "NewChatCandidateRecycle"
+
 class NewChatCandidateRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
 ) : RecyclerView.Adapter<NewChatCandidateRecyclerViewAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val contacts = mutableListOf<Contact>()
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             FragmentNewChatBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -24,16 +22,22 @@ class NewChatCandidateRecyclerViewAdapter(
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
+        val item = contacts[position]
+
         holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.contentView.text = item.fullName
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = contacts.size
+
+    fun submitList(newContacts: List<Contact>) {
+        contacts.clear()
+        contacts.addAll(newContacts)
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(binding: FragmentNewChatBinding) :
         RecyclerView.ViewHolder(binding.root) {

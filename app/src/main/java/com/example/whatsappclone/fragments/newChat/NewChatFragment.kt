@@ -1,29 +1,25 @@
 package com.example.whatsappclone.fragments.newChat
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
-import com.example.whatsappclone.fragments.newChat.placeholder.PlaceholderContent
+import com.example.whatsappclone.data.WhatsappCloneDatabase
 
-/**
- * A fragment representing a list of Items.
- */
+private const val TAG = "NewChatFragment"
+
 class NewChatFragment : Fragment() {
 
-    private var columnCount = 1
+    val viewModel by lazy {
+        createViewModel()
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
+    val database by lazy {
+        WhatsappCloneDatabase.getDatabaseInstance(requireContext())
     }
 
     override fun onCreateView(
@@ -34,29 +30,20 @@ class NewChatFragment : Fragment() {
 
         // Set the adapter
         if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = NewChatCandidateRecyclerViewAdapter(PlaceholderContent.ITEMS)
+            val adapter = NewChatCandidateRecyclerViewAdapter()
+
+            view.adapter = adapter
+
+            viewModel.allContacts.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
             }
         }
+
         return view
     }
 
-    companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            NewChatFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
+    private fun createViewModel(): NewChatFragmentViewModel {
+        val viewModelFactory = NewChatFragmentViewModelFactory(database)
+        return ViewModelProvider(this, viewModelFactory)[NewChatFragmentViewModel::class.java]
     }
 }

@@ -8,6 +8,9 @@ import com.example.whatsappclone.models.Message
 
 @Dao
 interface ChatDao : BaseDao<Chat> {
+    @Query("SELECT * FROM chats")
+    fun getAllChats(): LiveData<List<Chat>>
+
     @Query("SELECT * FROM chats WHERE other_person_contact_id = :contactId")
     suspend fun getChatByContactId(contactId: String): Chat?
 

@@ -11,6 +11,7 @@ import com.example.whatsappclone.data.WhatsappCloneDatabase
 import com.example.whatsappclone.data.mock.MockData
 import com.example.whatsappclone.databinding.FragmentChatListBinding
 import com.example.whatsappclone.models.Chat
+import kotlinx.coroutines.CoroutineScope
 
 private const val TAG = "ChatListFragment"
 
@@ -46,8 +47,16 @@ class ChatListFragment : Fragment() {
         return binding.root
     }
 
-    private fun createChatListAdapter() = ChatListAdapter(MockData.mockChats) {
-        onListedChatClicked(it)
+    private fun createChatListAdapter(): ChatListAdapter {
+        val adapter = ChatListAdapter() {
+            onListedChatClicked(it)
+        }
+
+        viewModel.chatList.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+        return adapter
     }
 
     private fun onListedChatClicked(it: Chat) {

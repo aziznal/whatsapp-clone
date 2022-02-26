@@ -11,9 +11,10 @@ import com.example.whatsappclone.models.Chat
 private const val TAG = "ChatListAdapter"
 
 class ChatListAdapter(
-    private val dataSet: Array<Chat>,
     private val onClickCallback: (Chat) -> Unit
 ) : RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>() {
+
+    val chatList = mutableListOf<Chat>()
 
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val chatNameTextView: TextView = view.findViewById(R.id.chat_name_text)
@@ -35,9 +36,15 @@ class ChatListAdapter(
     }
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        val chatItem = dataSet[position]
+        val chatItem = chatList[position]
         holder.bind(chatItem, onClickCallback)
     }
 
-    override fun getItemCount(): Int = dataSet.size
+    override fun getItemCount(): Int = chatList.size
+
+    fun submitList(newChats: List<Chat>) {
+        chatList.clear()
+        chatList.addAll(newChats)
+        notifyDataSetChanged()
+    }
 }
