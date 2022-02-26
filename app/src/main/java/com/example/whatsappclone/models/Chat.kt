@@ -17,7 +17,7 @@ import androidx.room.PrimaryKey
     ]
 )
 data class Chat(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: String,
 
     @ColumnInfo(name = "other_person_contact_id", index = true)

@@ -17,7 +17,7 @@ import androidx.room.PrimaryKey
     ]
 )
 data class Message(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: String,
 
     @ColumnInfo(name = "chat_id", index = true)

@@ -15,5 +15,5 @@ interface BaseDao<T> {
     fun update(vararg entity: T)
 
     @Delete
-    fun delete(vararg entityId: String)
+    fun delete(vararg entity: T)
 }

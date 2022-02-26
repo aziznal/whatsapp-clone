@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.whatsappclone.R
 import com.example.whatsappclone.adapters.ChatListAdapter
+import com.example.whatsappclone.data.WhatsappCloneDatabase
 import com.example.whatsappclone.data.mock.MockData
 import com.example.whatsappclone.databinding.FragmentChatListBinding
 import com.example.whatsappclone.models.Chat
@@ -18,6 +19,10 @@ class ChatListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: ChatListFragmentViewModel
+
+    private val database by lazy {
+        WhatsappCloneDatabase.getDatabaseInstance(requireContext())
+    }
 
     private val chatAdapter by lazy {
         createChatListAdapter()
@@ -74,7 +79,10 @@ class ChatListFragment : Fragment() {
     }
 
     private fun createViewModel() {
-        viewModel = ViewModelProvider(this)[ChatListFragmentViewModel::class.java]
+        val viewModelFactory = ChatListFragmentViewModelFactory(database)
+
+        viewModel = ViewModelProvider(this, viewModelFactory)[ChatListFragmentViewModel::class.java]
+
         binding.viewModel = viewModel
     }
 

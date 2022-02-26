@@ -13,11 +13,10 @@ interface ChatDao : BaseDao<Chat> {
 
     @Query(
         """
-            SELECT messages.body FROM chats
-                INNER JOIN messages ON messages.chat_id
-                WHERE id = :chatId
+            SELECT * FROM messages
+                WHERE messages.chat_id == :chatId
                 ORDER BY datetime ASC
-        """
+            """
     )
     fun getChatMessagesByChatId(chatId: String): LiveData<List<Message>>
 

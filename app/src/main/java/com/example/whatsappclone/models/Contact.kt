@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "contacts")
 data class Contact(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: String,
 
     @ColumnInfo(name = "full_name")
@@ -20,13 +20,4 @@ data class Contact(
 
     @ColumnInfo(name = "is_blocked")
     val isBlocked: Boolean
-)
-
-data class ContactWithLastMessage(
-    val id: String,
-    val fullName: String,
-    val status: String,
-    val phoneNumber: String,
-    val isBlocked: Boolean,
-    val lastMessage: Message
 )
