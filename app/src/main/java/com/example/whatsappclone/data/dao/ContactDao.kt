@@ -1,5 +1,6 @@
 package com.example.whatsappclone.data.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.example.whatsappclone.models.Contact
@@ -8,7 +9,7 @@ import com.example.whatsappclone.models.ContactWithLastMessage
 @Dao
 interface ContactDao : BaseDao<Contact> {
     @Query("SELECT * FROM contacts ORDER BY full_name ASC")
-    fun getAllContacts(): List<Contact>
+    fun getAllContacts(): LiveData<List<Contact>>
 
     @Query(
         """
@@ -19,5 +20,5 @@ interface ContactDao : BaseDao<Contact> {
             LIMIT 1
         """
     )
-    fun getContactsWithLastChatMessage(): List<ContactWithLastMessage>
+    fun getContactsWithLastChatMessage(): LiveData<List<ContactWithLastMessage>>
 }
