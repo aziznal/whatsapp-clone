@@ -1,11 +1,11 @@
-package com.example.whatsappclone.fragments.newChat
+package com.example.whatsappclone.fragments.addNewChat
 
 import androidx.lifecycle.ViewModel
 import com.example.whatsappclone.data.WhatsappCloneDatabase
 
 private const val TAG = "ChatFragmentViewModel"
 
-class NewChatFragmentViewModel(
+class AddNewChatFragmentViewModel(
     val database: WhatsappCloneDatabase
 ) : ViewModel() {
     val allContacts = database.contactDao().getAllContacts()

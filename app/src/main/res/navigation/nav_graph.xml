@@ -47,7 +47,7 @@
         app:destination="@id/fragment_settings" />
     <fragment
         android:id="@+id/newChatFragment"
-        android:name="com.example.whatsappclone.fragments.newChat.NewChatFragment"
+        android:name="com.example.whatsappclone.fragments.addNewChat.AddNewChatFragment"
         android:label="fragment_new_chat_list"
         tools:layout="@layout/fragment_new_chat_list" />
 </navigation>

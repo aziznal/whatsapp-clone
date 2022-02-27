@@ -1,4 +1,4 @@
-package com.example.whatsappclone.fragments.newChat
+package com.example.whatsappclone.fragments.addNewChat
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,8 +9,8 @@ import com.example.whatsappclone.models.Contact
 
 private const val TAG = "NewChatCandidateRecycle"
 
-class NewChatCandidateRecyclerViewAdapter(
-) : RecyclerView.Adapter<NewChatCandidateRecyclerViewAdapter.ViewHolder>() {
+class AddNewChatAdapter(
+) : RecyclerView.Adapter<AddNewChatAdapter.ViewHolder>() {
 
     val contacts = mutableListOf<Contact>()
 
