@@ -1,4 +1,4 @@
-package com.example.whatsappclone.fragments.chat
+package com.example.whatsappclone.fragments.chat.viewModels
 
 import android.view.MenuItem
 import androidx.lifecycle.ViewModel

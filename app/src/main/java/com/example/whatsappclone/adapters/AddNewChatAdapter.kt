@@ -1,4 +1,4 @@
-package com.example.whatsappclone.fragments.addNewChat
+package com.example.whatsappclone.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

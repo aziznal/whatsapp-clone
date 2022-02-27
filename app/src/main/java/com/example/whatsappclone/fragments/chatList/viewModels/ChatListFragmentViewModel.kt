@@ -1,4 +1,4 @@
-package com.example.whatsappclone.fragments.chatList
+package com.example.whatsappclone.fragments.chatList.viewModels
 
 import androidx.lifecycle.ViewModel
 import com.example.whatsappclone.data.mock.MockData

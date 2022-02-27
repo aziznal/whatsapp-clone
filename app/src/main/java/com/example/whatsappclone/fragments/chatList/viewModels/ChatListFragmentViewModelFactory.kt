@@ -1,9 +1,9 @@
-package com.example.whatsappclone.fragments.addNewChat
+package com.example.whatsappclone.fragments.chatList.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-class AddNewChatFragmentViewModelFactory() : ViewModelProvider.Factory {
+class ChatListFragmentViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return modelClass.getConstructor().newInstance()
     }

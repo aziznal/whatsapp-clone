@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.whatsappclone.fragments.chat.ChatViewModel" />
+            type="com.example.whatsappclone.fragments.chat.viewModels.ChatViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

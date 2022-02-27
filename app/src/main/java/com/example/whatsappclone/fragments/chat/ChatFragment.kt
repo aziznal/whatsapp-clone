@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.whatsappclone.R
 import com.example.whatsappclone.databinding.FragmentChatBinding
+import com.example.whatsappclone.fragments.chat.viewModels.ChatViewModel
 
 private const val TAG = "ChatFragment"
 

@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
+import com.example.whatsappclone.adapters.AddNewChatAdapter
+import com.example.whatsappclone.fragments.addNewChat.viewModels.AddNewChatFragmentViewModel
+import com.example.whatsappclone.fragments.addNewChat.viewModels.AddNewChatFragmentViewModelFactory
 
 private const val TAG = "NewChatFragment"
 

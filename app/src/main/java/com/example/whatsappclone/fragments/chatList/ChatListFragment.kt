@@ -9,6 +9,8 @@ import com.example.whatsappclone.R
 import com.example.whatsappclone.adapters.ChatListAdapter
 import com.example.whatsappclone.databinding.FragmentChatListBinding
 import com.example.whatsappclone.data.models.Contact
+import com.example.whatsappclone.fragments.chatList.viewModels.ChatListFragmentViewModel
+import com.example.whatsappclone.fragments.chatList.viewModels.ChatListFragmentViewModelFactory
 
 private const val TAG = "ChatListFragment"
 
