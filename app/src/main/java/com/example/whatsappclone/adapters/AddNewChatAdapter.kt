@@ -27,8 +27,8 @@ class AddNewChatAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contacts[position]
 
-        holder.idView.text = contact.id
-        holder.contentView.text = contact.contactInformation.fullName
+        holder.contactFullName.text = contact.contactInformation.fullName
+        holder.contactStatus.text = contact.contactInformation.status
     }
 
     override fun getItemCount(): Int = contacts.size
@@ -41,12 +41,9 @@ class AddNewChatAdapter(
 
     inner class ViewHolder(binding: FragmentNewChatBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
 
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
-        }
+        val contactFullName = binding.contactFullnameText
+        val contactStatus = binding.contactStatus
     }
 
 }
