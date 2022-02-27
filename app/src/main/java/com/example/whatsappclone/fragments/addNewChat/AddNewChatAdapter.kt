@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.databinding.FragmentNewChatBinding
-import com.example.whatsappclone.models.Contact
+import com.example.whatsappclone.data.models.Contact
 
 private const val TAG = "NewChatCandidateRecycle"
 

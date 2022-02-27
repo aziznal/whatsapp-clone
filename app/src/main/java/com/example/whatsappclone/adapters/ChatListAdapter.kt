@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
-import com.example.whatsappclone.models.Chat
-import com.example.whatsappclone.models.Contact
+import com.example.whatsappclone.data.models.Contact
 
 private const val TAG = "ChatListAdapter"
 

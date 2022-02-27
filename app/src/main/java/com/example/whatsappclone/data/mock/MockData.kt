@@ -2,10 +2,10 @@ package com.example.whatsappclone.data.mock
 
 import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
-import com.example.whatsappclone.models.Chat
-import com.example.whatsappclone.models.Contact
-import com.example.whatsappclone.models.ContactInformation
-import com.example.whatsappclone.models.Message
+import com.example.whatsappclone.data.models.Chat
+import com.example.whatsappclone.data.models.Contact
+import com.example.whatsappclone.data.models.ContactInformation
+import com.example.whatsappclone.data.models.Message
 
 class MockData {
     companion object {

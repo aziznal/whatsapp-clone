@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.whatsappclone.R
 import com.example.whatsappclone.adapters.ChatListAdapter
 import com.example.whatsappclone.databinding.FragmentChatListBinding
-import com.example.whatsappclone.models.Contact
+import com.example.whatsappclone.data.models.Contact
 
 private const val TAG = "ChatListFragment"
 

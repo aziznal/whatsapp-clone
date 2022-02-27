@@ -1,4 +1,4 @@
-package com.example.whatsappclone.models
+package com.example.whatsappclone.data.models
 
 data class Chat(
     val id: String,
