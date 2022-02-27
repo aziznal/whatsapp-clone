@@ -5,5 +5,9 @@ data class Message(
     val body: String,
     val datetime: String,
     val isOwnMessage: Boolean,
-    val hasBeenRead: Boolean
-)
+    var hasBeenRead: Boolean
+) {
+    fun setAsRead() {
+        hasBeenRead = true
+    }
+}

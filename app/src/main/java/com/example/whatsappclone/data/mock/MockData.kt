@@ -1,6 +1,5 @@
 package com.example.whatsappclone.data.mock
 
-import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
 import com.example.whatsappclone.data.models.Chat
 import com.example.whatsappclone.data.models.Contact
@@ -67,11 +66,6 @@ class MockData {
             return MutableLiveData<List<Contact>>(contacts)
         }
 
-        private fun getContactById(contactId: String): Contact {
-            return contacts.find { it.id == contactId }
-                ?: throw Resources.NotFoundException("Couldn't find contact with id $contactId")
-        }
-
         fun addContact(contact: Contact) {
             contacts.add(contact)
         }
@@ -80,26 +74,6 @@ class MockData {
             contacts.removeIf {
                 it.id == contactId
             }
-        }
-
-        fun addChat(contactId: String, chat: Chat) {
-            val contact = getContactById(contactId)
-            contact.chat = chat
-        }
-
-        fun removeChat(contactId: String, chatId: String) {
-            val contact = getContactById(contactId)
-            contact.chat = null
-        }
-
-        fun addMessage(contactId: String, message: Message) {
-            val contact = getContactById(contactId)
-            contact.chat?.messages?.add(message)
-        }
-
-        fun removeMessage(contactId: String, messageId: String) {
-            val contact = getContactById(contactId)
-            contact.chat?.messages?.removeIf { it.id == messageId }
         }
     }
 }

@@ -4,7 +4,15 @@ data class Contact(
     val id: String,
     val contactInformation: ContactInformation,
     var chat: Chat?
-)
+) {
+    fun addChat(chat: Chat) {
+        this.chat = chat
+    }
+
+    fun removeChat(chatId: String) {
+        this.chat = null
+    }
+}
 
 data class ContactInformation(
     val fullName: String,
