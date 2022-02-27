@@ -7,25 +7,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
 import com.example.whatsappclone.models.Chat
+import com.example.whatsappclone.models.Contact
 
 private const val TAG = "ChatListAdapter"
 
 class ChatListAdapter(
-    private val onClickCallback: (Chat) -> Unit
+    private val onClickCallback: (Contact) -> Unit
 ) : RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>() {
 
-    val chatList = mutableListOf<Chat>()
+    private val contactList = mutableListOf<Contact>()
 
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val chatNameTextView: TextView = view.findViewById(R.id.chat_name_text)
         private val chatLastMessageTextView: TextView = view.findViewById(R.id.last_message_text)
 
-        fun bind(chat: Chat, onClickCallback: (Chat) -> Unit) {
-            chatNameTextView.text = chat.otherPersonContactId.toString()
-            chatLastMessageTextView.text = "I know what you did :)"
+        fun bind(contact: Contact, onClickCallback: (Contact) -> Unit) {
+            chatNameTextView.text = contact.contactInformation.fullName
+            chatLastMessageTextView.text = contact.chat?.messages?.last()?.body
 
             itemView.setOnClickListener {
-                onClickCallback(chat)
+                onClickCallback(contact)
             }
         }
     }
@@ -36,15 +37,15 @@ class ChatListAdapter(
     }
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        val chatItem = chatList[position]
+        val chatItem = contactList[position]
         holder.bind(chatItem, onClickCallback)
     }
 
-    override fun getItemCount(): Int = chatList.size
+    override fun getItemCount(): Int = contactList.size
 
-    fun submitList(newChats: List<Chat>) {
-        chatList.clear()
-        chatList.addAll(newChats)
+    fun submitList(newContacts: List<Contact>) {
+        contactList.clear()
+        contactList.addAll(newContacts)
         notifyDataSetChanged()
     }
 }

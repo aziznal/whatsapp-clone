@@ -1,89 +1,105 @@
 package com.example.whatsappclone.data.mock
 
+import android.content.res.Resources
+import androidx.lifecycle.MutableLiveData
 import com.example.whatsappclone.models.Chat
 import com.example.whatsappclone.models.Contact
+import com.example.whatsappclone.models.ContactInformation
 import com.example.whatsappclone.models.Message
 
 class MockData {
     companion object {
-        val mockContacts = listOf(
+        private val contacts = listOf<Contact>(
             Contact(
-                id = "Contact1",
-                fullName = "John Doe",
-                status = "Available",
-                phoneNumber = "8726187745",
-                isBlocked = false
+                id = "contact1",
+                contactInformation = ContactInformation(
+                    fullName = "John Doe",
+                    status = "Available",
+                    phoneNumber = "+90153489789",
+                    isBlocked = false
+                ),
+                chat = Chat(
+                    id = "contact1Chat",
+                    messages = mutableListOf<Message>(
+                        Message(
+                            id = "contact1ChatMessage1",
+                            body = "This is this chat's first message!",
+                            datetime = "1970-01-01TZ00:00:00",
+                            isOwnMessage = true,
+                            hasBeenRead = false
+                        )
+                    )
+                )
             ),
+
             Contact(
-                id = "Contact2",
-                fullName = "Jane Doe",
-                status = "Urgent Calls Only",
-                phoneNumber = "3163462865",
-                isBlocked = false
-            ),
-        ).toTypedArray()
-
-        val mockChats = listOf(
-            Chat(
-                id = "Chat1",
-                otherPersonContactId = mockContacts[0].id
-            ),
-            Chat(
-                id = "Chat2",
-                otherPersonContactId = mockContacts[1].id
-            ),
-        ).toTypedArray()
-
-        val mockMessages = listOf(
-            Message(
-                id = "Message1",
-                body = "I know what you did last summer",
-                datetime = "16:41",
-                chatId = mockChats[0].id,
-                isOwnMessage = false,
-                hasBeenRead = false
-            ),
-            Message(
-                id = "Message2",
-                body = "I still know what you did last summer",
-                datetime = "16:43",
-                chatId = mockChats[0].id,
-                isOwnMessage = false,
-                hasBeenRead = false
-            ),
-            Message(
-                id = "Message3",
-                body = "I will always know what you did last summer",
-                datetime = "16:45",
-                chatId = mockChats[0].id,
-                isOwnMessage = false,
-                hasBeenRead = false
+                id = "contact2",
+                contactInformation = ContactInformation(
+                    fullName = "Jane Doe",
+                    status = "Urgent Calls Only",
+                    phoneNumber = "+00457546145",
+                    isBlocked = false
+                ),
+                chat = Chat(
+                    id = "contact2Chat",
+                    messages = mutableListOf<Message>(
+                        Message(
+                            id = "contact2ChatMessage1",
+                            body = "Let's get pizza tonight",
+                            datetime = "1970-01-01TZ00:00:00",
+                            isOwnMessage = true,
+                            hasBeenRead = true
+                        ),
+                        Message(
+                            id = "contact2ChatMessage2",
+                            body = "That sounds good",
+                            datetime = "1970-01-01TZ00:00:00",
+                            isOwnMessage = false,
+                            hasBeenRead = true
+                        )
+                    )
+                )
             ),
 
-            Message(
-                id = "Message4",
-                body = "I know what you did last summer",
-                datetime = "16:41",
-                chatId = mockChats[1].id,
-                isOwnMessage = false,
-                hasBeenRead = false
-            ),
-            Message(
-                id = "Message5",
-                body = "I still know what you did last summer",
-                datetime = "16:43",
-                chatId = mockChats[1].id,
-                isOwnMessage = false,
-                hasBeenRead = false
-            ),
-            Message(
-                id = "Message6",
-                body = "I will always know what you did last summer",
-                datetime = "16:45",
-                chatId = mockChats[1].id,
-                isOwnMessage = false,
-                hasBeenRead = false
-            ),
-        ).toTypedArray()
+            ).toTypedArray().toMutableList()
+
+        fun getContacts(): MutableLiveData<List<Contact>> {
+            return MutableLiveData<List<Contact>>(contacts)
+        }
+
+        private fun getContactById(contactId: String): Contact {
+            return contacts.find { it.id == contactId }
+                ?: throw Resources.NotFoundException("Couldn't find contact with id $contactId")
+        }
+
+        fun addContact(contact: Contact) {
+            contacts.add(contact)
+        }
+
+        fun removeContact(contactId: String) {
+            contacts.removeIf {
+                it.id == contactId
+            }
+        }
+
+        fun addChat(contactId: String, chat: Chat) {
+            val contact = getContactById(contactId)
+            contact.chat = chat
+        }
+
+        fun removeChat(contactId: String, chatId: String) {
+            val contact = getContactById(contactId)
+            contact.chat = null
+        }
+
+        fun addMessage(contactId: String, message: Message) {
+            val contact = getContactById(contactId)
+            contact.chat?.messages?.add(message)
+        }
+
+        fun removeMessage(contactId: String, messageId: String) {
+            val contact = getContactById(contactId)
+            contact.chat?.messages?.removeIf { it.id == messageId }
+        }
     }
 }

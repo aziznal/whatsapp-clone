@@ -7,11 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.whatsappclone.R
 import com.example.whatsappclone.adapters.ChatListAdapter
-import com.example.whatsappclone.data.WhatsappCloneDatabase
-import com.example.whatsappclone.data.mock.MockData
 import com.example.whatsappclone.databinding.FragmentChatListBinding
-import com.example.whatsappclone.models.Chat
-import kotlinx.coroutines.CoroutineScope
+import com.example.whatsappclone.models.Contact
 
 private const val TAG = "ChatListFragment"
 
@@ -20,10 +17,6 @@ class ChatListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: ChatListFragmentViewModel
-
-    private val database by lazy {
-        WhatsappCloneDatabase.getDatabaseInstance(requireContext())
-    }
 
     private val chatAdapter by lazy {
         createChatListAdapter()
@@ -52,14 +45,14 @@ class ChatListFragment : Fragment() {
             onListedChatClicked(it)
         }
 
-        viewModel.chatList.observe(viewLifecycleOwner) {
+        viewModel.contactList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
         return adapter
     }
 
-    private fun onListedChatClicked(it: Chat) {
+    private fun onListedChatClicked(it: Contact) {
         findNavController().navigate(
             ChatListFragmentDirections.actionChatListFragmentToChatFragment(
                 it.id
@@ -88,10 +81,8 @@ class ChatListFragment : Fragment() {
     }
 
     private fun createViewModel() {
-        val viewModelFactory = ChatListFragmentViewModelFactory(database)
-
+        val viewModelFactory = ChatListFragmentViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory)[ChatListFragmentViewModel::class.java]
-
         binding.viewModel = viewModel
     }
 

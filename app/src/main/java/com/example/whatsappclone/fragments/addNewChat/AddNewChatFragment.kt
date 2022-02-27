@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatsappclone.R
-import com.example.whatsappclone.data.WhatsappCloneDatabase
 
 private const val TAG = "NewChatFragment"
 
@@ -16,10 +15,6 @@ class AddNewChatFragment : Fragment() {
 
     val viewModel by lazy {
         createViewModel()
-    }
-
-    val database by lazy {
-        WhatsappCloneDatabase.getDatabaseInstance(requireContext())
     }
 
     lateinit var view: RecyclerView
@@ -47,7 +42,7 @@ class AddNewChatFragment : Fragment() {
     }
 
     private fun createViewModel(): AddNewChatFragmentViewModel {
-        val viewModelFactory = AddNewChatFragmentViewModelFactory(database)
+        val viewModelFactory = AddNewChatFragmentViewModelFactory()
         return ViewModelProvider(this, viewModelFactory)[AddNewChatFragmentViewModel::class.java]
     }
 }

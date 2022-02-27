@@ -1,23 +1,14 @@
 package com.example.whatsappclone.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "contacts")
 data class Contact(
-    @PrimaryKey
     val id: String,
+    val contactInformation: ContactInformation,
+    var chat: Chat?
+)
 
-    @ColumnInfo(name = "full_name")
+data class ContactInformation(
     val fullName: String,
-
-    @ColumnInfo(name = "status")
     val status: String,
-
-    @ColumnInfo(name = "phone_number")
     val phoneNumber: String,
-
-    @ColumnInfo(name = "is_blocked")
-    val isBlocked: Boolean
+    val isBlocked: Boolean,
 )

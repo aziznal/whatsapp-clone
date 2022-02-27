@@ -25,10 +25,10 @@ class AddNewChatAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = contacts[position]
+        val contact = contacts[position]
 
-        holder.idView.text = item.id
-        holder.contentView.text = item.fullName
+        holder.idView.text = contact.id
+        holder.contentView.text = contact.contactInformation.fullName
     }
 
     override fun getItemCount(): Int = contacts.size
